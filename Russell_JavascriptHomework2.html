@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+
+		<style>
+
+		body {
+			margin: 0;
+			padding: 0;
+		}
+
+		#clockcenter {
+			width: 100%;
+			height: 100vh;
+		}
+
+		 #txt {
+		 	position: absolute;
+		 	font-family: helvetica;
+		 	font-size: 30px;
+			margin-left: 40%;
+			margin-right: 50%;
+			margin-top: 50%;
+		 	color: green;
+		 }
+
+		</style>
+
+	</head>
+	<body onload="startTime()">
+		<div id="clockcenter">
+			<div id="txt"></div>
+		</div>
+
+		<script>
+
+			function checkTime(i) {
+		    if (i<10) {i = "0" + i};
+		    return i; 
+			}
+
+			function colorChange(i) {
+				if(i % 2 === 0) {
+					document.body.style.background = "darkred";
+					document.getElementById("txt").style.color = "black";
+				} else {
+					document.body.style.background = "black";
+					document.getElementById("txt").style.color = "darkred";
+				}
+			}
+
+			function startTime() {
+			    var today = new Date();
+			    var h = today.getHours();
+			    var m = today.getMinutes();
+			    var s = today.getSeconds();
+			    var d = today.getMilliseconds();
+
+			    colorChange(m);
+
+			    m = checkTime(m);
+			    s = checkTime(s);
+			    d = checkTime(d)
+
+			    document.getElementById("txt").innerHTML = h+":"+m+":"+s+":"+d;
+
+			    var t = setTimeout(function(){ 
+			    	startTime()
+			    },01);
+			}
+
+		</script>
+	</body>
+</html>
+
+
+
+
+
+<script>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<style>
+			body {
+				margin: 0;
+				padding: 20px;
+			}
+			
+			#formwrapper {
+				float: left;
+				width: 50%;
+				background-color: lightgray;
+				padding: 50px;
+			}
+
+			form > input {
+				width: 100%;
+			}
+
+			#submitbutton {
+				width: 50%;
+				margin-top: 20px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<script>
+			function validateForm() {
+				var n = document.forms["myForm"]["firstname"].value;
+				var l = document.forms["myForm"]["lastname"].value;
+				var e = document.forms["myForm"]["email"].value;
+				var p = document.forms["myForm"]["password"].value;
+
+	    	if (n === null || n === "") {
+	      	alert("Name must be filled out");
+	        return false;
+	    	} else if (l === null || l === "") {
+	      	alert("Last Name must be filled out");
+	        return false;
+	    	} else if (e === null || e === "") {
+	      	alert("Email must be filled out");
+	        return false;
+	    	} else if (p === null || p === "") {
+	      	alert("Password must be filled out");
+	        return false;
+	    	}
+			}
+		</script>
+	
+		<div id="formwrapper">
+			<form name="myForm" onsubmit="return validateForm()" method="post">
+				First name:
+				<br>
+				<input type="text" name="firstname">
+				<br>
+				Last name:
+				<br>
+				<input type="text" name="lastname">
+				<br>
+				Email:
+				<br>
+				<input type="text" name="email">
+				<br>
+				Password:
+				<br>
+				<input type="password" name="password">
+				<br>
+				<input id="submitbutton" type="submit" value="submit">
+			</form>
+		</div>
+	</body>
+</html>
